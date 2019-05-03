@@ -2,6 +2,8 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import 'hammer-simulator';
 import VueRecognizer from '../src';
 
+declare var Simulator: any;
+
 describe('VueRecognizer', () => {
   it('can recognize pan event', () => {
     const localVue = createLocalVue();
