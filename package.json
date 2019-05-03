@@ -1,0 +1,39 @@
+{
+  "name": "vue-recognizer",
+  "version": "0.0.0",
+  "description": "Vue.js plugin to recognize touch, mouse, pointer events using hammerjs",
+  "keywords": [
+    "gesture",
+    "hammer",
+    "vue"
+  ],
+  "homepage": "https://github.com/1000ch/vue-recognizer#readme",
+  "bugs": {
+    "url": "https://github.com/1000ch/vue-recognizer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/1000ch/vue-recognizer.git"
+  },
+  "license": "MIT",
+  "author": "1000ch",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.8"
+  },
+  "devDependencies": {
+    "@types/hammerjs": "^2.0.36",
+    "typescript": "^3.4.5",
+    "vue": "^2.6.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.0"
+  }
+}
