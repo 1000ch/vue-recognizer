@@ -1,4 +1,4 @@
-# vue-recognizer
+# vue-recognizer [![Build Status](https://travis-ci.org/1000ch/vue-recognizer.svg?branch=master)](https://travis-ci.org/1000ch/vue-recognizer)
 
 Vue.js plugin to recognize touch, mouse, pointer events using [Hammer.js](http://hammerjs.github.io/getting-started/).
 
