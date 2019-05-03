@@ -1,44 +1,15 @@
 import Vue, { PluginObject, VueConstructor } from 'vue';
 import { DirectiveBinding } from 'vue/types/options';
 import Hammer from 'hammerjs';
-
-export enum Recognizer {
-  Pan = 'pan',
-  Pinch = 'pinch',
-  Press = 'press',
-  Rotate = 'rotate',
-  Swipe = 'swipe',
-  Tap = 'tap'
-};
-
-export enum Timing {
-  Start = 'start',
-  Move = 'move',
-  End = 'end',
-  Cancel = 'cancel'
-};
-
-export enum InOut {
-  In = 'in',
-  Out = 'out'
-}
-
-export enum Direction {
-  Left = 'left',
-  Right = 'right',
-  Up = 'up',
-  Down = 'down'
-};
-
-export type Up = 'up';
-export type Default = '';
-
-export type PanEvent = Timing | Direction | Default;
-export type PinchEvent = Timing | InOut | Default;
-export type PressEvent = Up | Default;
-export type RotateEvent = Timing | Default;
-export type SwipeEvent = Direction | Default;
-export type TapEvent = Default;
+import {
+  Recognizer,
+  PanEvent,
+  PinchEvent,
+  PressEvent,
+  RotateEvent,
+  SwipeEvent,
+  TapEvent
+} from './types';
 
 function detectPanEvent(modifiers: string[]): PanEvent {
   return modifiers.find((m): m is PanEvent => m === m) || '';
