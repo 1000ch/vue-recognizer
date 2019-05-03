@@ -80,6 +80,7 @@ const installer: PluginObject<HammerOptions> = {
             break;
           case Recognizer.Pinch:
             const pinchEvent = detectPinchEvent(modifiers);
+            hammer.get('pinch').set({ enable: true });
             hammer.on(`pinch${pinchEvent}`, listener);
             break;
           case Recognizer.Press:
@@ -88,6 +89,7 @@ const installer: PluginObject<HammerOptions> = {
             break;
           case Recognizer.Rotate:
             const rotateEvent = detectRotateEvent(modifiers);
+            hammer.get('rotate').set({ enable: true });
             hammer.on(`rotate${rotateEvent}`, listener);
             break;
           case Recognizer.Swipe:

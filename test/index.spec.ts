@@ -5,7 +5,7 @@ import VueRecognizer from '../src';
 declare var Simulator: any;
 
 describe('VueRecognizer', () => {
-  it('can recognize pan event', () => {
+  it('can recognize pan event', done => {
     const localVue = createLocalVue();
     localVue.use(VueRecognizer);
 
@@ -21,10 +21,11 @@ describe('VueRecognizer', () => {
       deltaY: 0
     }, () => {
       expect(onPan).toHaveBeenCalled();
+      done();
     });
   });
 
-  it('can recognize pinch event', () => {
+  it('can recognize pinch event', done => {
     const localVue = createLocalVue();
     localVue.use(VueRecognizer);
 
@@ -39,10 +40,11 @@ describe('VueRecognizer', () => {
       scale: 0.5
     }, () => {
       expect(onPinch).toHaveBeenCalled();
+      done();
     });
   });
 
-  it('can recognize press event', () => {
+  it('can recognize press event', done => {
     const localVue = createLocalVue();
     localVue.use(VueRecognizer);
 
@@ -52,14 +54,13 @@ describe('VueRecognizer', () => {
       methods: { onPress }
     }, { localVue });
 
-    Simulator.gestures.press(app.find('div').element, {
-      duration: 240
-    }, () => {
+    Simulator.gestures.press(app.find('div').element, null, () => {
       expect(onPress).toHaveBeenCalled();
+      done();
     });
   });
 
-  it('can recognize rotate event', () => {
+  it('can recognize rotate event', done => {
     const localVue = createLocalVue();
     localVue.use(VueRecognizer);
 
@@ -74,10 +75,11 @@ describe('VueRecognizer', () => {
       scale: 1
     }, () => {
       expect(onRotate).toHaveBeenCalled();
+      done();
     });
   });
 
-  it('can recognize swipe event', () => {
+  it('can recognize swipe event', done => {
     const localVue = createLocalVue();
     localVue.use(VueRecognizer);
 
@@ -93,10 +95,11 @@ describe('VueRecognizer', () => {
       deltaY: 0
     }, () => {
       expect(onSwipe).toHaveBeenCalled();
+      done();
     });
   });
 
-  it('can recognize tap event', () => {
+  it('can recognize tap event', done => {
     const localVue = createLocalVue();
     localVue.use(VueRecognizer);
 
@@ -110,6 +113,7 @@ describe('VueRecognizer', () => {
       duration: 240
     }, () => {
       expect(onTap).toHaveBeenCalled();
+      done();
     });
   });
 });
