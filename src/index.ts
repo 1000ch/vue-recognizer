@@ -12,27 +12,27 @@ import {
 } from './types';
 
 function detectPanEvent(modifiers: string[]): PanEvent {
-  return modifiers.find((m): m is PanEvent => m === m) || '';
+  return modifiers.find((m): m is PanEvent => Boolean(m)) || '';
 }
 
 function detectPinchEvent(modifiers: string[]): PinchEvent {
-  return modifiers.find((m): m is PinchEvent => m === m) || '';
+  return modifiers.find((m): m is PinchEvent => Boolean(m)) || '';
 }
 
 function detectPressEvent(modifiers: string[]): PressEvent {
-  return modifiers.find((m): m is PressEvent => m === m) || '';
+  return modifiers.find((m): m is PressEvent => Boolean(m)) || '';
 }
 
 function detectRotateEvent(modifiers: string[]): RotateEvent {
-  return modifiers.find((m): m is RotateEvent => m === m) || '';
+  return modifiers.find((m): m is RotateEvent => Boolean(m)) || '';
 }
 
 function detectSwipeEvent(modifiers: string[]): SwipeEvent {
-  return modifiers.find((m): m is SwipeEvent => m === m) || '';
+  return modifiers.find((m): m is SwipeEvent => Boolean(m)) || '';
 }
 
 function detectTapEvent(modifiers: string[]): TapEvent {
-  return modifiers.find((m): m is TapEvent => m === m) || '';
+  return modifiers.find((m): m is TapEvent => Boolean(m)) || '';
 }
 
 const installer: PluginObject<HammerOptions> = {
