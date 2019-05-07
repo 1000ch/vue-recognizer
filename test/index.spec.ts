@@ -2,7 +2,16 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import 'hammer-simulator';
 import VueRecognizer from '../src';
 
-declare var Simulator: any;
+declare var Simulator: {
+  readonly gestures: {
+    readonly pan: Function,
+    readonly pinch: Function,
+    readonly press: Function,
+    readonly rotate: Function,
+    readonly swipe: Function,
+    readonly tap: Function
+  }
+};
 
 describe('VueRecognizer', () => {
   it('can recognize pan event', done => {
