@@ -18,8 +18,7 @@
   "license": "MIT",
   "author": "1000ch",
   "files": [
-    "lib",
-    "src"
+    "lib"
   ],
   "main": "lib/index.js",
   "scripts": {
