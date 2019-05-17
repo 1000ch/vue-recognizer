@@ -27,13 +27,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/hammerjs": "^2.0.36",
     "hammerjs": "^2.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-typescript": "^7.3.3",
-    "@types/hammerjs": "^2.0.36",
     "@types/jest": "^24.0.12",
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-jest": "^24.7.1",
