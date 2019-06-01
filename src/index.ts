@@ -1,6 +1,7 @@
 import Vue, { PluginObject, VueConstructor } from 'vue';
 import { DirectiveBinding } from 'vue/types/options';
 import Hammer from 'hammerjs';
+import '@1000ch/array-find/shim';
 import {
   Recognizer,
   PanEvent,
