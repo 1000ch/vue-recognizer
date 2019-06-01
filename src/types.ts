@@ -35,3 +35,103 @@ export type PressEvent = Up | Default;
 export type RotateEvent = Timing | Default;
 export type SwipeEvent = Direction | Default;
 export type TapEvent = Default;
+
+export function isDefault(modifier: string): boolean {
+  return modifier === '';
+}
+
+export function isUp(modifier: string): boolean {
+  return modifier === 'up';
+}
+
+export function isPanEvent(modifier: string): boolean {
+  switch (modifier) {
+    case Timing.Start:
+    case Timing.Move:
+    case Timing.End:
+    case Timing.Cancel:
+      return true;
+    case Direction.Left:
+    case Direction.Right:
+    case Direction.Up:
+    case Direction.Down:
+      return true;
+  }
+
+  if (isDefault(modifier)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function isPinchEvent(modifier: string): boolean {
+  switch (modifier) {
+    case Timing.Start:
+    case Timing.Move:
+    case Timing.End:
+    case Timing.Cancel:
+      return true;
+    case InOut.In:
+    case InOut.Out:
+      return true;
+  }
+
+  if (isDefault(modifier)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function isPressEvent(modifier: string): boolean {
+  if (isUp(modifier)) {
+    return true;
+  }
+
+  if (isDefault(modifier)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function isRotateEvent(modifier: string): boolean {
+  switch (modifier) {
+    case Timing.Start:
+    case Timing.Move:
+    case Timing.End:
+    case Timing.Cancel:
+      return true;
+  }
+
+  if (isDefault(modifier)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function isSwipeEvent(modifier: string): boolean {
+  switch (modifier) {
+    case Direction.Left:
+    case Direction.Right:
+    case Direction.Up:
+    case Direction.Down:
+      return true;
+  }
+
+  if (isDefault(modifier)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function isTapEvent(modifier: string): boolean {
+  if (isDefault(modifier)) {
+    return true;
+  }
+
+  return false;
+}

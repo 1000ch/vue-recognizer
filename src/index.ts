@@ -8,31 +8,37 @@ import {
   PressEvent,
   RotateEvent,
   SwipeEvent,
-  TapEvent
+  TapEvent,
+  isPanEvent,
+  isPinchEvent,
+  isPressEvent,
+  isRotateEvent,
+  isSwipeEvent,
+  isTapEvent
 } from './types';
 
 function detectPanEvent(modifiers: string[]): PanEvent {
-  return modifiers.find((m): m is PanEvent => Boolean(m)) || '';
+  return modifiers.find((m: string) => isPanEvent(m)) as PanEvent || '';
 }
 
 function detectPinchEvent(modifiers: string[]): PinchEvent {
-  return modifiers.find((m): m is PinchEvent => Boolean(m)) || '';
+  return modifiers.find((m: string) => isPinchEvent(m)) as PinchEvent || '';
 }
 
 function detectPressEvent(modifiers: string[]): PressEvent {
-  return modifiers.find((m): m is PressEvent => Boolean(m)) || '';
+  return modifiers.find((m: string) => isPressEvent(m)) as PressEvent || '';
 }
 
 function detectRotateEvent(modifiers: string[]): RotateEvent {
-  return modifiers.find((m): m is RotateEvent => Boolean(m)) || '';
+  return modifiers.find((m: string) => isRotateEvent(m)) as RotateEvent || '';
 }
 
 function detectSwipeEvent(modifiers: string[]): SwipeEvent {
-  return modifiers.find((m): m is SwipeEvent => Boolean(m)) || '';
+  return modifiers.find((m: string) => isSwipeEvent(m)) as SwipeEvent || '';
 }
 
 function detectTapEvent(modifiers: string[]): TapEvent {
-  return modifiers.find((m): m is TapEvent => Boolean(m)) || '';
+  return modifiers.find((m: string) => isTapEvent(m)) as TapEvent || '';
 }
 
 const installer: PluginObject<HammerOptions> = {
