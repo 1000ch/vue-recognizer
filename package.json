@@ -26,7 +26,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@1000ch/array-find": "^1.2.0",
     "@types/hammerjs": "^2.0.36",
     "hammerjs": "^2.0.8"
   },
