@@ -1,6 +1,6 @@
 {
   "name": "vue-recognizer",
-  "version": "0.3.3",
+  "version": "1.0.0",
   "description": "Vue.js plugin to recognize touch, mouse, pointer events using hammerjs",
   "keywords": [
     "gesture",
