@@ -9,12 +9,14 @@ import {
   RotateEvent,
   SwipeEvent,
   TapEvent,
+  DoubleTapEvent,
   isPanEvent,
   isPinchEvent,
   isPressEvent,
   isRotateEvent,
   isSwipeEvent,
-  isTapEvent
+  isTapEvent,
+  isDoubleTapEvent
 } from './types';
 
 function detectPanEvent(modifiers: string[]): PanEvent {
@@ -39,6 +41,10 @@ function detectSwipeEvent(modifiers: string[]): SwipeEvent {
 
 function detectTapEvent(modifiers: string[]): TapEvent {
   return modifiers.find((m: string) => isTapEvent(m)) as TapEvent || '';
+}
+
+function detectDoubleTapEvent(modifiers: string[]): DoubleTapEvent {
+  return modifiers.find((m: string) => isDoubleTapEvent(m)) as DoubleTapEvent || '';
 }
 
 const installer: PluginObject<HammerOptions> = {
@@ -76,6 +82,10 @@ const installer: PluginObject<HammerOptions> = {
           case Recognizer.Tap:
             const tapEvent = detectTapEvent(modifiers);
             hammer.on(`tap${tapEvent}`, listener);
+            break;
+          case Recognizer.DoubleTap:
+            const doubleTapEvent = detectDoubleTapEvent(modifiers);
+            hammer.on(`doubletap${doubleTapEvent}`, listener);
             break;
         }
       }

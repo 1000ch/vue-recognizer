@@ -4,7 +4,8 @@ export enum Recognizer {
   Press = 'press',
   Rotate = 'rotate',
   Swipe = 'swipe',
-  Tap = 'tap'
+  Tap = 'tap',
+  DoubleTap = 'doubletap'
 };
 
 enum Timing {
@@ -35,6 +36,7 @@ export type PressEvent = Up | Default;
 export type RotateEvent = Timing | Default;
 export type SwipeEvent = Direction | Default;
 export type TapEvent = Default;
+export type DoubleTapEvent = Default;
 
 export function isDefault(modifier: string): boolean {
   return modifier === '';
@@ -129,6 +131,14 @@ export function isSwipeEvent(modifier: string): boolean {
 }
 
 export function isTapEvent(modifier: string): boolean {
+  if (isDefault(modifier)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function isDoubleTapEvent(modifier: string): boolean {
   if (isDefault(modifier)) {
     return true;
   }

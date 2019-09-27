@@ -9,7 +9,8 @@ declare var Simulator: {
     readonly press: Function,
     readonly rotate: Function,
     readonly swipe: Function,
-    readonly tap: Function
+    readonly tap: Function,
+    readonly doubletap: Function
   }
 };
 
@@ -232,6 +233,28 @@ describe('VueRecognizer', () => {
     }, () => {
       expect(onTap).toHaveBeenCalled();
       done();
+    });
+  });
+
+  it('can recognize doubletap event', done => {
+    const localVue = createLocalVue();
+    localVue.use(VueRecognizer);
+
+    const onDoubleTap = jest.fn();
+    const app = mount({
+      template: `<div v-recognizer:doubletap="onDoubleTap" />`,
+      methods: { onDoubleTap }
+    }, { localVue });
+
+    Simulator.gestures.tap(app.find('div').element, {
+      duration: 50
+    }, () => {
+      Simulator.gestures.tap(app.find('div').element, {
+        duration: 50
+      }, () => {
+        expect(onDoubleTap).toHaveBeenCalled();
+        done();
+      });
     });
   });
 });
