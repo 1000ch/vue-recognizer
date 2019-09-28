@@ -115,6 +115,7 @@ export default config;
 ### [Tap](http://hammerjs.github.io/recognizer-tap/)
 
 - `v-recognizer:tap="onTap"`
+- `v-recognizer:doubletap="onDoubleTap"`
 
 ## License
 
