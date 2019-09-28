@@ -23,6 +23,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "test": "jest"
   },
   "dependencies": {
